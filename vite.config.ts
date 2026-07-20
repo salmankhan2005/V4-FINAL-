@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 import tsConfigPaths from "vite-tsconfig-paths";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [
     tanstackStart({ server: { entry: "server" } }),
     react(),
@@ -28,6 +28,6 @@ export default defineConfig({
     allowedHosts: ["v4-final.onrender.com"],
   },
   ssr: {
-    noExternal: true,
+    noExternal: command === 'build' ? true : undefined,
   },
-});
+}));
