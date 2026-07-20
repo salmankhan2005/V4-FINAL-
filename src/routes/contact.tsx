@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import LottieRaw from "lottie-react";
-const Lottie = (LottieRaw as any).default || LottieRaw;
+import * as React from "react";
+import { ClientOnly } from "@/components/ClientOnly";
+const Lottie = React.lazy(() => import("lottie-react").then(m => ({ default: m.default || (m as any) })));
 import supportAnime from "../assets/Support anime.json";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
@@ -20,12 +21,16 @@ function ContactRoute() {
         <p className="mt-4 text-lg text-muted-foreground">
           Have a project in mind? Let's build something extraordinary together. Fill out the form below or reach out to us directly.
         </p>
-        <div className="mx-auto mt-8 max-w-sm rounded-3xl bg-secondary p-8 shadow-inner">
-          <Lottie 
-            animationData={supportAnime} 
-            loop={true} 
-            className="w-full mix-blend-multiply dark:mix-blend-screen"
-          />
+        <div className="mx-auto mt-8 max-w-sm rounded-3xl bg-secondary p-8 shadow-inner min-h-[300px]">
+          <ClientOnly>
+            <React.Suspense fallback={null}>
+              <Lottie 
+                animationData={supportAnime} 
+                loop={true} 
+                className="w-full mix-blend-multiply dark:mix-blend-screen"
+              />
+            </React.Suspense>
+          </ClientOnly>
         </div>
       </div>
       </Reveal>

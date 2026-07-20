@@ -12,8 +12,8 @@ import {
   Instagram,
 } from "lucide-react";
 import logo from "@/assets/v4-logo-transparent.png";
-import LottieRaw from "lottie-react";
-const Lottie = (LottieRaw as any).default || LottieRaw;
+import { ClientOnly } from "@/components/ClientOnly";
+const Lottie = React.lazy(() => import("lottie-react").then(m => ({ default: m.default || (m as any) })));
 import businessTeamAnim from "@/assets/business-team.json";
 
 export const NAV = [
@@ -197,12 +197,16 @@ export function Footer() {
           </div>
 
           <div className="flex items-center justify-center self-start">
-            <Lottie
-              animationData={businessTeamAnim}
-              loop
-              autoplay
-              className="w-full max-w-[200px] lg:max-w-[220px]"
-            />
+            <ClientOnly>
+              <React.Suspense fallback={null}>
+                <Lottie
+                  animationData={businessTeamAnim}
+                  loop
+                  autoplay
+                  className="w-full max-w-[200px] lg:max-w-[220px]"
+                />
+              </React.Suspense>
+            </ClientOnly>
           </div>
         </div>
 
