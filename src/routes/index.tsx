@@ -28,7 +28,7 @@ import { Reveal } from "@/components/Reveal";
 
 import heroMockup from "@/assets/hero-mockup-new.png";
 import office from "@/assets/office.jpg";
-const storyVideo = "https://www.w3schools.com/html/mov_bbb.mp4"; // Placeholder video
+import storyVideo from "@/assets/story-video.mp4";
 
 export const Route = createFileRoute("/")({
   component: Landing,

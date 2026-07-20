@@ -18,6 +18,15 @@ export function Chatbot() {
     }
   }, [messages]);
 
+  React.useEffect(() => {
+    if (isOpen) {
+      document.documentElement.classList.add("chat-open");
+    } else {
+      document.documentElement.classList.remove("chat-open");
+    }
+    return () => document.documentElement.classList.remove("chat-open");
+  }, [isOpen]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim() || isLoading) return;

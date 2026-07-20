@@ -7,7 +7,7 @@ export function WhatsAppButton() {
       href={`https://wa.me/${phoneNumber}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 grid size-16 place-items-center rounded-full bg-black text-white shadow-xl transition-transform hover:scale-105 dark:bg-white dark:text-black"
+      className="fixed bottom-6 right-6 z-50 grid size-16 place-items-center rounded-full bg-black text-white shadow-xl transition-transform hover:scale-105 dark:bg-white dark:text-black [.chat-open_&]:hidden sm:[.chat-open_&]:grid"
       aria-label="Contact us on WhatsApp"
     >
       <svg 
