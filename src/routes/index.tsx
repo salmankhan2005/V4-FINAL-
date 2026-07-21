@@ -22,6 +22,7 @@ import {
   ShieldCheck,
   Lightbulb,
   HeartHandshake,
+  GraduationCap,
 } from "lucide-react";
 
 import { Reveal } from "@/components/Reveal";
@@ -43,6 +44,7 @@ const EXPERTISE = [
   { icon: Cloud, label: "Cloud Solutions" },
   { icon: BarChart3, label: "Data Analytics" },
   { icon: Sparkles, label: "Branding & Identity" },
+  { icon: GraduationCap, label: "Edutech" },
 ];
 
 const SERVICES = [
@@ -54,6 +56,7 @@ const SERVICES = [
   { icon: Search, title: "SEO & Analytics", desc: "Improve visibility and maximize performance." },
   { icon: Workflow, title: "Automation Solutions", desc: "Streamline workflows and boost productivity." },
   { icon: Sparkles, title: "Branding & Identity", desc: "Create a strong identity that represents your brand." },
+  { icon: GraduationCap, title: "Edutech Solutions", desc: "Transform learning with innovative educational technology." },
 ];
 
 const MISSIONS = [
@@ -209,7 +212,7 @@ function Hero() {
 function ExpertiseRibbon() {
   return (
     <section className="container-page pb-12">
-      <div className="grid grid-cols-2 gap-4 rounded-2xl border border-border bg-card p-6 shadow-(--shadow-card) sm:grid-cols-4 lg:grid-cols-8 lg:gap-2">
+      <div className="flex flex-wrap justify-center gap-4 rounded-2xl border border-border bg-card p-6 shadow-(--shadow-card) lg:gap-6">
         {EXPERTISE.map(({ icon: Icon, label }) => (
           <div key={label} className="flex items-center gap-2 px-2 py-2">
             <Icon className="size-5 shrink-0 text-primary" />
