@@ -127,21 +127,24 @@ import { Chatbot } from "../components/Chatbot";
 import { Toaster } from "@/components/ui/sonner";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { SplashScreen } from "@/components/SplashScreen";
+import { ReactLenis } from 'lenis/react';
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <SplashScreen />
-      <Header />
-      <main className="min-h-screen">
-        <Outlet />
-      </main>
-      <Footer />
-      <Chatbot />
-      <WhatsAppButton />
-      <Toaster />
+      <ReactLenis root options={{ lerp: 0.08 }}>
+        <SplashScreen />
+        <Header />
+        <main className="min-h-screen">
+          <Outlet />
+        </main>
+        <Footer />
+        <Chatbot />
+        <WhatsAppButton />
+        <Toaster />
+      </ReactLenis>
     </QueryClientProvider>
   );
 }
